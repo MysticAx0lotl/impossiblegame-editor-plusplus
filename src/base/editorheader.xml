@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImageAtlas>
+    <!-- All images in atlas -->
+    <ImagesArr>
+        <!--0-->
+  		<Image name_imageType_0="editorheader" alpha="CHANNEL">
+  			<FragmentArr>
+  				<Fragment name_utf_0="editorheader" x_short_1="0.0" y_short_2="0.0" w_short_3="1.0" h_short_4="1.0" />
+  			</FragmentArr>
+  		</Image>
+        
+
+		
+    </ImagesArr>
+</ImageAtlas>
+

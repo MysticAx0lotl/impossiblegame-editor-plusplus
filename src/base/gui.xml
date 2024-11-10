@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImageAtlas>
+    <!-- All images in atlas -->
+    <ImagesArr>
+        <!--0-->
+  		<Image name_imageType_0="gui" alpha="CHANNEL">
+  			<FragmentArr>
+  				<Fragment name_utf_0="btnOpen" x_short_1="0.0" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnOpenAudio" x_short_1="0.125" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnSave" x_short_1="0.250" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnToggleGrid" x_short_1="0.375" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnSnapToGrid" x_short_1="0.500" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnBlock" x_short_1="0.625" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnSpike" x_short_1="0.750" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				<Fragment name_utf_0="btnPit" x_short_1="0.875" y_short_2="0.0" w_short_3="0.125" h_short_4="0.25" />
+  				
+          <Fragment name_utf_0="btnDelete" x_short_1="0.0" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnMark" x_short_1="0.125" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnDeleteMark" x_short_1="0.250" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnRewind" x_short_1="0.375" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnPlay" x_short_1="0.500" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnPlayFromMark" x_short_1="0.625" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnLaunchGame" x_short_1="0.750" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnLevelEnd" x_short_1="0.875" y_short_2="0.25" w_short_3="0.125" h_short_4="0.25" />
+
+          <Fragment name_utf_0="btnNew" x_short_1="0.0" y_short_2="0.5" w_short_3="0.125" h_short_4="0.25" />
+          <Fragment name_utf_0="btnBackground" x_short_1="0.125" y_short_2="0.5" w_short_3="0.125" h_short_4="0.25" />
+
+  			</FragmentArr>
+  		</Image>
+        
+
+		
+    </ImagesArr>
+</ImageAtlas>
+
