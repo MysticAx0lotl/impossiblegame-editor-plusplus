@@ -1,52 +1,45 @@
-/*    */ package com.grip.elements;
-/*    */ 
-/*    */ import com.grip.saving.SaveData;
-/*    */ import java.io.DataOutputStream;
-/*    */ import java.io.IOException;
-/*    */ 
-/*    */ public class BlocksFall
-/*    */   extends SaveData {
-/*    */   private final int startX;
-/*    */   private final int endX;
-/*    */   
-/*    */   public BlocksFall(int startX, int endX) {
-/* 13 */     this.startX = startX;
-/* 14 */     this.endX = endX;
-/*    */   }
-/*    */ 
-/*    */   
-/*    */   public void writeToDataOutputStream(DataOutputStream outputStream) throws IOException {
-/* 19 */     outputStream.writeInt(this.startX);
-/* 20 */     outputStream.writeInt(this.endX);
-/*    */   }
-/*    */ 
-/*    */   
-/*    */   public boolean equals(Object o) {
-/* 25 */     if (this == o) return true; 
-/* 26 */     if (o == null || getClass() != o.getClass()) return false;
-/*    */     
-/* 28 */     BlocksFall that = (BlocksFall)o;
-/*    */     
-/* 30 */     if (this.endX != that.endX) return false; 
-/* 31 */     if (this.startX != that.startX) return false;
-/*    */     
-/* 33 */     return true;
-/*    */   }
-/*    */ 
-/*    */   
-/*    */   public int hashCode() {
-/* 38 */     int result = this.startX;
-/* 39 */     result = 31 * result + this.endX;
-/* 40 */     return result;
-/*    */   }
-/*    */   
-/*    */   public int getX() {
-/* 44 */     return this.startX;
-/*    */   }
-/*    */ }
+package com.grip.elements;
 
+import com.grip.saving.SaveData;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
-/* Location:              C:\Program Files (x86)\Steam\steamapps\common\TheImpossibleGame\editor\TheImpossibleGameEditor.jar!\com\grip\elements\BlocksFall.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */
+public class BlocksFall extends SaveData {
+   private final int startX;
+   private final int endX;
+
+   public BlocksFall(int startX, int endX) {
+      this.startX = startX;
+      this.endX = endX;
+   }
+
+   public void writeToDataOutputStream(DataOutputStream outputStream) throws IOException {
+      outputStream.writeInt(this.startX);
+      outputStream.writeInt(this.endX);
+   }
+
+   public boolean equals(Object o) {
+      if (this == o) {
+         return true;
+      } else if (o != null && this.getClass() == o.getClass()) {
+         BlocksFall that = (BlocksFall)o;
+         if (this.endX != that.endX) {
+            return false;
+         } else {
+            return this.startX == that.startX;
+         }
+      } else {
+         return false;
+      }
+   }
+
+   public int hashCode() {
+      int result = this.startX;
+      result = 31 * result + this.endX;
+      return result;
+   }
+
+   public int getX() {
+      return this.startX;
+   }
+}

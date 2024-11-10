@@ -1,20 +1,11 @@
-/*    */ package com.grip.gui.components;
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ public class Pair<T, Y>
-/*    */ {
-/*    */   T key;
-/*    */   Y value;
-/*    */   
-/*    */   public Pair(T key, Y value) {
-/* 11 */     this.key = key;
-/* 12 */     this.value = value;
-/*    */   }
-/*    */ }
+package com.grip.gui.components;
 
+public class Pair {
+   Object key;
+   Object value;
 
-/* Location:              C:\Program Files (x86)\Steam\steamapps\common\TheImpossibleGame\editor\TheImpossibleGameEditor.jar!\com\grip\gui\components\Pair.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */
+   public Pair(Object key, Object value) {
+      this.key = key;
+      this.value = value;
+   }
+}

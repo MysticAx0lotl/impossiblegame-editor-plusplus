@@ -1,43 +1,37 @@
-/*    */ package com.grip.gui.library;
-/*    */ 
-/*    */ import com.grip.Fragment;
-/*    */ import java.util.HashMap;
-/*    */ import java.util.List;
-/*    */ import java.util.Map;
-/*    */ import javax.swing.ImageIcon;
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ public class GraphicsRepository
-/*    */ {
-/* 15 */   private final Map<String, Fragment> fragments = new HashMap<String, Fragment>();
-/*    */ 
-/*    */   
-/*    */   public GraphicsRepository() {}
-/*    */   
-/*    */   public GraphicsRepository(List<Fragment> fragments) {
-/* 21 */     addFragments(fragments);
-/*    */   }
-/*    */   
-/*    */   public void addFragments(List<Fragment> fragments) {
-/* 25 */     for (Fragment fragment : fragments) {
-/* 26 */       this.fragments.put(fragment.getFragmentName(), fragment);
-/*    */     }
-/*    */   }
-/*    */   
-/*    */   public Fragment getFragment(String imageTitle) {
-/* 31 */     return this.fragments.get(imageTitle);
-/*    */   }
-/*    */   
-/*    */   public ImageIcon getImageIcon(String imageTitle) {
-/* 35 */     return new ImageIcon(getFragment(imageTitle).getFragmentImage());
-/*    */   }
-/*    */ }
+package com.grip.gui.library;
 
+import com.grip.Fragment;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import javax.swing.ImageIcon;
 
-/* Location:              C:\Program Files (x86)\Steam\steamapps\common\TheImpossibleGame\editor\TheImpossibleGameEditor.jar!\com\grip\gui\library\GraphicsRepository.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */
+public class GraphicsRepository {
+   private final Map fragments = new HashMap();
+
+   public GraphicsRepository() {
+   }
+
+   public GraphicsRepository(List fragments) {
+      this.addFragments(fragments);
+   }
+
+   public void addFragments(List fragments) {
+      Iterator i$ = fragments.iterator();
+
+      while(i$.hasNext()) {
+         Fragment fragment = (Fragment)i$.next();
+         this.fragments.put(fragment.getFragmentName(), fragment);
+      }
+
+   }
+
+   public Fragment getFragment(String imageTitle) {
+      return (Fragment)this.fragments.get(imageTitle);
+   }
+
+   public ImageIcon getImageIcon(String imageTitle) {
+      return new ImageIcon(this.getFragment(imageTitle).getFragmentImage());
+   }
+}

@@ -1,140 +1,104 @@
-/*     */ package com.grip.elements;
-/*     */ 
-/*     */ import com.grip.gui.library.GraphicsRepository;
-/*     */ import java.awt.Graphics2D;
-/*     */ import java.awt.image.ImageObserver;
-/*     */ import java.util.List;
-/*     */ 
-/*     */ public class BlockObject
-/*     */   extends LevelObject
-/*     */ {
-/*     */   public BlockObject(int x, int y) {
-/*  12 */     super(x, y);
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public byte getTypeId() {
-/*  17 */     return 0;
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public List<Integer> getValuesForSaving() {
-/*  22 */     return null;
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public String getImageName() {
-/*  27 */     return "block";
-/*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
-/*     */   public boolean drawObject(ImageObserver imageObserver, Graphics2D graph, GraphicsRepository graphicsRepository, double baseLine, double scaleRatio, int currentXStart, int scaledTargetWidth) {
-/*  36 */     int width = getWidth();
-/*  37 */     int height = getHeight();
-/*     */     
-/*  39 */     if (!isVisible(currentXStart, scaledTargetWidth)) {
-/*  40 */       return false;
-/*     */     }
-/*  42 */     graph.drawImage(graphicsRepository.getFragment(getImageName()).getFragmentImage(), (int)Math.floor((getX() - currentXStart) * scaleRatio), (int)Math.floor(baseLine + 1.0D - (getY() + height) * scaleRatio), (int)Math.ceil(width * scaleRatio), (int)Math.ceil(height * scaleRatio), imageObserver);
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */     
-/*  47 */     return true;
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public boolean isVisible(int currentXStart, int scaledTargetWidth) {
-/*  52 */     int width = getWidth();
-/*  53 */     if (getX() < currentXStart - width) {
-/*  54 */       return false;
-/*     */     }
-/*  56 */     if (getX() > currentXStart + width + scaledTargetWidth) {
-/*  57 */       return false;
-/*     */     }
-/*  59 */     return true;
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getWidth() {
-/*  64 */     return getWidthStatic();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getHeight() {
-/*  69 */     return getHeightStatic();
-/*     */   }
-/*     */   
-/*     */   public static int getWidthStatic() {
-/*  73 */     return 30;
-/*     */   }
-/*     */   
-/*     */   public static int getHeightStatic() {
-/*  77 */     return 30;
-/*     */   }
-/*     */   
-/*     */   public static int getCollisionWidthStatic() {
-/*  81 */     return getWidthStatic();
-/*     */   }
-/*     */   
-/*     */   public static int getCollisionHeightStatic() {
-/*  85 */     return getHeightStatic();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getCollisionX() {
-/*  90 */     return getX();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getCollisionY() {
-/*  95 */     return getY();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getCollisionWidth() {
-/* 100 */     return getWidth();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public int getCollisionHeight() {
-/* 105 */     return getHeight();
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public boolean isColliding(int collisionX, int collisionY, int collisionWidth, int collisionHeight) {
-/* 110 */     int diffX = collisionX - getCollisionX();
-/*     */     
-/* 112 */     if (diffX > 0 && diffX >= getCollisionWidth()) {
-/* 113 */       return false;
-/*     */     }
-/* 115 */     if (diffX < 0 && -diffX >= collisionWidth) {
-/* 116 */       return false;
-/*     */     }
-/* 118 */     int diffY = collisionY - getCollisionY();
-/* 119 */     if (diffY > 0 && diffY >= getCollisionHeight()) {
-/* 120 */       return false;
-/*     */     }
-/*     */     
-/* 123 */     if (diffY < 0 && -diffY >= collisionHeight) {
-/* 124 */       return false;
-/*     */     }
-/*     */     
-/* 127 */     return true;
-/*     */   }
-/*     */ 
-/*     */   
-/*     */   public boolean tryMergeWith(LevelObject levelObject) {
-/* 132 */     return false;
-/*     */   }
-/*     */ }
+package com.grip.elements;
 
+import com.grip.gui.library.GraphicsRepository;
+import java.awt.Graphics2D;
+import java.awt.image.ImageObserver;
+import java.util.List;
 
-/* Location:              C:\Program Files (x86)\Steam\steamapps\common\TheImpossibleGame\editor\TheImpossibleGameEditor.jar!\com\grip\elements\BlockObject.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */
+public class BlockObject extends LevelObject {
+   public BlockObject(int x, int y) {
+      super(x, y);
+   }
+
+   public byte getTypeId() {
+      return 0;
+   }
+
+   public List getValuesForSaving() {
+      return null;
+   }
+
+   public String getImageName() {
+      return "block";
+   }
+
+   public boolean drawObject(ImageObserver imageObserver, Graphics2D graph, GraphicsRepository graphicsRepository, double baseLine, double scaleRatio, int currentXStart, int scaledTargetWidth) {
+      int width = this.getWidth();
+      int height = this.getHeight();
+      if (!this.isVisible(currentXStart, scaledTargetWidth)) {
+         return false;
+      } else {
+         graph.drawImage(graphicsRepository.getFragment(this.getImageName()).getFragmentImage(), (int)Math.floor((double)(this.getX() - currentXStart) * scaleRatio), (int)Math.floor(baseLine + 1.0 - (double)(this.getY() + height) * scaleRatio), (int)Math.ceil((double)width * scaleRatio), (int)Math.ceil((double)height * scaleRatio), imageObserver);
+         return true;
+      }
+   }
+
+   public boolean isVisible(int currentXStart, int scaledTargetWidth) {
+      int width = this.getWidth();
+      if (this.getX() < currentXStart - width) {
+         return false;
+      } else {
+         return this.getX() <= currentXStart + width + scaledTargetWidth;
+      }
+   }
+
+   public int getWidth() {
+      return getWidthStatic();
+   }
+
+   public int getHeight() {
+      return getHeightStatic();
+   }
+
+   public static int getWidthStatic() {
+      return 30;
+   }
+
+   public static int getHeightStatic() {
+      return 30;
+   }
+
+   public static int getCollisionWidthStatic() {
+      return getWidthStatic();
+   }
+
+   public static int getCollisionHeightStatic() {
+      return getHeightStatic();
+   }
+
+   public int getCollisionX() {
+      return this.getX();
+   }
+
+   public int getCollisionY() {
+      return this.getY();
+   }
+
+   public int getCollisionWidth() {
+      return this.getWidth();
+   }
+
+   public int getCollisionHeight() {
+      return this.getHeight();
+   }
+
+   public boolean isColliding(int collisionX, int collisionY, int collisionWidth, int collisionHeight) {
+      int diffX = collisionX - this.getCollisionX();
+      if (diffX > 0 && diffX >= this.getCollisionWidth()) {
+         return false;
+      } else if (diffX < 0 && -diffX >= collisionWidth) {
+         return false;
+      } else {
+         int diffY = collisionY - this.getCollisionY();
+         if (diffY > 0 && diffY >= this.getCollisionHeight()) {
+            return false;
+         } else {
+            return diffY >= 0 || -diffY < collisionHeight;
+         }
+      }
+   }
+
+   public boolean tryMergeWith(LevelObject levelObject) {
+      return false;
+   }
+}

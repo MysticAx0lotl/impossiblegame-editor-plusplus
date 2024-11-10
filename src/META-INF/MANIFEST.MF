@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
-Class-Path: lib/basicplayer3.0.jar lib/commons-logging-api.jar lib/jl1
- .0.jar lib/jmactritonusspi1.74.jar lib/mp3spi1.9.4.jar lib/vorbisspi1
- .0.2.jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar lib/tritonus_share.
- jar
+Class-Path: lib/basicplayer3.0.jar lib/commons-logging-api.jar lib/jl1.0
+ .jar lib/jmactritonusspi1.74.jar lib/mp3spi1.9.4.jar lib/vorbisspi1.0.2
+ .jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar lib/tritonus_share.jar
 Main-Class: com.grip.gui.TIGEditor
 
