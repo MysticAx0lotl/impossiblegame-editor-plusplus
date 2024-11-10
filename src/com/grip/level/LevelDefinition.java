@@ -296,26 +296,51 @@ public class LevelDefinition {
 
    private void sortAll() {
       Collections.sort(this.levelObjects, new Comparator() {
+         @Override
+         public int compare(Object o1, Object o2) {
+            return 0;
+         }
+
          public int compare(LevelObject o1, LevelObject o2) {
             return o1.getX() - o2.getX();
          }
       });
       Collections.sort(this.backgroundChanges, new Comparator() {
+         @Override
+         public int compare(Object o1, Object o2) {
+            return 0;
+         }
+
          public int compare(BackgroundChange o1, BackgroundChange o2) {
             return o1.getX() - o2.getX();
          }
       });
       Collections.sort(this.gravityChanges, new Comparator() {
+         @Override
+         public int compare(Object o1, Object o2) {
+            return 0;
+         }
+
          public int compare(GravityChange o1, GravityChange o2) {
             return o1.getX() - o2.getX();
          }
       });
       Collections.sort(this.blocksFallList, new Comparator() {
+         @Override
+         public int compare(Object o1, Object o2) {
+            return 0;
+         }
+
          public int compare(BlocksFall o1, BlocksFall o2) {
             return o1.getX() - o2.getX();
          }
       });
       Collections.sort(this.blocksRiseList, new Comparator() {
+         @Override
+         public int compare(Object o1, Object o2) {
+            return 0;
+         }
+
          public int compare(BlocksRise o1, BlocksRise o2) {
             return o1.getX() - o2.getX();
          }

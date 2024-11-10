@@ -8,6 +8,8 @@ import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
 
+import static java.lang.Math.round;
+
 public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
    private String pathToAudioFile;
    private BasicPlayer mp3;
@@ -98,7 +100,7 @@ public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
                }
             }
 
-            long skipBytes = (long)Math.round((float)(this.getBytesLength(this.audioInfo) * millis / this.getTimeLengthEstimation(this.audioInfo)));
+            long skipBytes = (long) round((float)(this.getBytesLength(this.audioInfo) * millis / this.getTimeLengthEstimation(this.audioInfo)));
             if (skipBytes > 0L) {
                synchronized(this.syncRoot) {
                   this.syncCode = 7;
@@ -149,7 +151,7 @@ public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
          }
 
          if (properties.containsKey("duration")) {
-            milliseconds = (long)((int)(Long)properties.get("duration") / 1000);
+            milliseconds = (int)round((Long)properties.get("duration") / 1000);
          } else {
             int bitspersample = -1;
             int channels = -1;
@@ -200,15 +202,15 @@ public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
          this.bIsPlaying = false;
          System.out.println("Waiting for play");
 
-         BasicPlayerException e;
+         BasicPlayerException playerE;
          try {
             this.mp3.setGain(0.0);
          } catch (BasicPlayerException var10) {
-            e = var10;
-            e.printStackTrace();
+            playerE = var10;
+            playerE.printStackTrace();
          }
 
-         InterruptedException e;
+         InterruptedException intE;
          synchronized(this.syncRoot) {
             this.syncCode = 2;
             this.mp3.play();
@@ -216,8 +218,8 @@ public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
             try {
                this.syncRoot.wait(5000L);
             } catch (InterruptedException var8) {
-               e = var8;
-               e.printStackTrace();
+               intE = var8;
+               intE.printStackTrace();
             }
          }
 
@@ -229,16 +231,16 @@ public class Mp3AndOggAudioFile implements AudioFile, BasicPlayerListener {
             try {
                this.syncRoot.wait(1000L);
             } catch (InterruptedException var6) {
-               e = var6;
-               e.printStackTrace();
+               intE = var6;
+               intE.printStackTrace();
             }
          }
 
          try {
             this.mp3.setGain(1.0);
          } catch (BasicPlayerException var5) {
-            e = var5;
-            e.printStackTrace();
+            playerE = var5;
+            playerE.printStackTrace();
          }
       } catch (BasicPlayerException var11) {
       }

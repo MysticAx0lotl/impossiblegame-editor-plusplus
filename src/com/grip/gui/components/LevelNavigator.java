@@ -81,7 +81,7 @@ public class LevelNavigator extends JPanel {
          Color oldColor = graph.getColor();
          graph.setColor(Color.RED);
          Font oldFont = graph.getFont();
-         int FONT_HEIGHT = true;
+         int FONT_HEIGHT = 1;
          graph.setFont(new Font("SansSerif", 1, 14));
          String positionStr = "X to place hint mark";
          graph.drawString(positionStr, this.currentBuffer.getWidth() - 5 - graph.getFontMetrics().stringWidth(positionStr), 14);
@@ -214,7 +214,7 @@ public class LevelNavigator extends JPanel {
          Color oldColor = graph.getColor();
          graph.setColor(Color.YELLOW);
          Font oldFont = graph.getFont();
-         int FONT_HEIGHT = true;
+         int FONT_HEIGHT = 1;
          graph.setFont(new Font("SansSerif", 1, 14));
          String positionStr = "Position: " + dataPosition;
          graph.drawString(positionStr, 5, 14);
@@ -229,7 +229,7 @@ public class LevelNavigator extends JPanel {
          Color oldColor = graph.getColor();
          graph.setColor(Color.YELLOW);
          Font oldFont = graph.getFont();
-         int FONT_HEIGHT = true;
+         int FONT_HEIGHT = 1;
          graph.setFont(new Font("SansSerif", 1, 14));
          String positionStr = "CTRL+LMB for jump guide";
          graph.drawString(positionStr, this.currentBuffer.getWidth() - 5 - graph.getFontMetrics().stringWidth(positionStr), 14);

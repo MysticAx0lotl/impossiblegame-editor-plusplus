@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="TIG-Editor">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/original.jar!/" />
+      <root url="jar://$PROJECT_DIR$/original-decompiled.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -285,7 +285,7 @@ public class LevelViewSettings {
       if (x > this.levelNavigator.getBufferWidth()) {
          this.pitStart = -1;
       } else if (this.selectedLevelObjectType == LevelObject.ObjectType.PIT && this.pitStart >= 0) {
-         int y = 10;
+         y = 10;
          int tmpPitStart = this.pitStart;
          this.pitStart = 0;
          double ratio = this.getRatio();
